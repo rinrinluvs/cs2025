@@ -1,0 +1,137 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+@font-face {
+    font-family: "IrisUPC";
+    src: url("IrisUPC.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "IrisUPC";
+    src: url("IrisUPC-Bold.ttf");
+    font-weight: bold;
+}
+
+  
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;         
+}
+
+
+body {
+    background: #8D0801;
+    font-family: 'IrisUPC', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #708D81;
+}
+
+
+.navbar {
+    background: #F4D58D;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    height: 80px
+}
+
+.navbar .logo {
+    float: left;
+    padding-top: 10px;
+}
+
+.navbar ul {
+    float: right;
+    list-style: none;
+}
+
+.navbar ul li {
+    float: left;
+    padding: 10px;
+}
+
+
+.navbar ul li a {
+    color: #708D81;
+    font-weight: bold;
+    font-size: 54px;
+    display: block;
+    text-align: center;
+}
+
+.navbar ul li a:hover {
+    color: #336B54;
+}
+
+.background-top img {
+    position:absolute;
+    top:100vh;
+    transform:translateY(-100%);
+    width:100%;
+}
+
+.fireworks img {
+    height: 10%;
+}
+
+.hero {
+    position: fixed;
+    left: 1000px;
+    bottom: 70px;
+    margin-left: -320px;
+}
+
+.hero h1,
+.hero h2 {
+    color: white;
+    text-align: center;
+    line-height: .7em;
+}
+
+.hero h1 {
+    font-size: 256px;
+}
+
+.hero h2 {
+    font-family: Aboreto;
+    font-weight: 400;
+    font-size: 64px;
+}
+
+.coins {
+    display: flex;
+    justify-content: center;
+}
+
+.coins .coin {
+    margin: 3.5em;
+}
+
+.coins .coin img:hover {
+    animation: turn_coin 300ms ease-in-out forwards;
+}
+
+.coins .coin h2 {
+    font-size: 128px;
+    color: white;
+    text-align: center;
+}
+
+@keyframes turn_coin {
+    0% {
+        rotate: 0;
+    }
+
+    100% {
+        rotate: -45deg
+    }
+}
