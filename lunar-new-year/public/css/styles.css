@@ -55,6 +55,11 @@ a:hover {
     font-size: 128px;
     color: white;
     text-align: center;
+    padding-top: 30px;
+}
+
+.header-text {
+    font-weight: bold;
 }
 
 span.spec_char {
@@ -151,21 +156,67 @@ span.spec_char {
 /* Food Guide */
 .box {
     padding: 30px;
+    font-size: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.box .box-img {
-    float: left;
-    width: 30%;
-    height: 100%;
-
+.box-img img {
+    margin: 0 150px;
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: center top
 }
 
-.box .box-text {
+.box-text {
     background-color: #F4D58D;
     border: #F4D58D 5px solid;
-    border-radius: 5%;
-    padding: 50px;
-
+    border-radius: 150px;
+    padding: 50px 120px;
+    
     width: 70%;
     display: inline-block;
+}
+
+.box-text .name {
+    margin-top: -60px;
+    padding-top: 30px;
+}
+
+.box-text .desc {
+    padding: 10px 150px;
+    line-height: .9em
+}
+
+/* History */
+.history-box {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    justify-content: center; /* Centers the whole box */
+    padding: 30px;
+    font-size: 52px;
+}
+
+.history-box .box-text .desc {
+    padding: 0;
+}
+
+.history-box .box-img img {
+    width: 441px;
+    height: 492px;
+    margin: 0 50px;
+    border-radius: 150px;
+
+}
+
+/* Child Text */
+.box-text {
+    text-align: center; /* Centers text inside */
+}
+
+.name-history {
+    font-size: 64px;
 }
