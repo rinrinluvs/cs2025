@@ -38,7 +38,7 @@ a:hover {
 /* Utility Classes */
 .bottom-text {
     position: absolute;
-    bottom: 10px;
+    bottom: 200px;
     left: 50%;
     transform: translateX(-50%);
     color: white;
@@ -68,6 +68,7 @@ span.spec_char {
 
 .clr { clear: both; }
 
+
 /* Navbar */
 .navbar {
     background: #F4D58D;
@@ -93,7 +94,6 @@ span.spec_char {
 }
 
 .navbar ul li a {
-    color: #708D81;
     font-weight: bold;
     font-size: 54px;
     text-align: center;
@@ -219,4 +219,40 @@ span.spec_char {
 
 .name-history {
     font-size: 64px;
+}
+
+/* Celebrations */
+.container {
+    /* margin-top: 50px; */
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.scroll {
+    background-color: #F4D58D;
+    width: 550px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-left-radius: 700px;
+    border-top-right-radius: 700px;
+}
+
+.globe {
+    font-size: 48px;
+    margin-bottom: 20px;
+    /* height: 620px; */
+    margin-top: -20px;  
+    /* margin-bottom: -30px; */
+}
+
+.scroll-text {
+    text-align: center;
+    font-size: 54px;
+    /* padding-top: 20px; Creates space above text */
+    line-height: 0.9em;
+    margin-top: 0;
 }
