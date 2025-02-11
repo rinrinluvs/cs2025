@@ -1,39 +1,69 @@
-/* Fonts */
+/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
 
 @font-face {
     font-family: "IrisUPC";
-    src: url("IrisUPC.ttf");
+    src: url("../fonts/IrisUPC.ttf");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "IrisUPC";
-    src: url("IrisUPC-Bold.ttf");
+    src: url("../fonts/IrisUPC-Bold.ttf");
     font-weight: bold;
 }
-
-  
 
 /* Reset */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;         
+    box-sizing: border-box;
 }
-
 
 body {
     background: #8D0801;
     font-family: 'IrisUPC', sans-serif;
 }
 
+/* Links */
 a {
     text-decoration: none;
     color: #708D81;
 }
 
+a:hover {
+    color: #336B54;
+}
 
+/* Utility Classes */
+.bottom-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.active {
+    color: #336B54;
+}
+
+.header {
+    font-size: 128px;
+    color: white;
+    text-align: center;
+}
+
+span.spec_char {
+    font-size: .6em;
+}
+
+.clr { clear: both; }
+
+/* Navbar */
 .navbar {
     background: #F4D58D;
     display: flex;
@@ -41,60 +71,48 @@ a {
     justify-content: space-between;
     padding: 10px;
     width: 100%;
-    height: 80px
+    height: 80px;
 }
 
 .navbar .logo {
-    float: left;
     padding-top: 10px;
 }
 
 .navbar ul {
-    float: right;
+    display: flex;
     list-style: none;
 }
 
 .navbar ul li {
-    float: left;
     padding: 10px;
 }
-
 
 .navbar ul li a {
     color: #708D81;
     font-weight: bold;
     font-size: 54px;
-    display: block;
     text-align: center;
 }
 
-.navbar ul li a:hover {
-    color: #336B54;
-}
-
+/* Background Image */
 .background-top img {
-    position:absolute;
-    top:100vh;
-    transform:translateY(-100%);
-    width:100%;
+    position: absolute;
+    top: 100vh;
+    transform: translateY(-100%);
+    width: 100%;
 }
 
+/* Fireworks */
 .fireworks img {
     height: 10%;
 }
 
-.hero {
-    position: fixed;
-    left: 1000px;
-    bottom: 70px;
-    margin-left: -320px;
-}
-
+/* Hero Section */
 .hero h1,
 .hero h2 {
     color: white;
     text-align: center;
-    line-height: .7em;
+    line-height: 0.5em;
 }
 
 .hero h1 {
@@ -102,36 +120,52 @@ a {
 }
 
 .hero h2 {
-    font-family: Aboreto;
+    font-family: Aboreto, sans-serif;
     font-weight: 400;
     font-size: 64px;
 }
 
+/* Coins Section */
 .coins {
     display: flex;
     justify-content: center;
-}
-
-.coins .coin {
-    margin: 3.5em;
+    gap: 3.5em; /* Instead of margin */
 }
 
 .coins .coin img:hover {
     animation: turn_coin 300ms ease-in-out forwards;
 }
 
-.coins .coin h2 {
-    font-size: 128px;
-    color: white;
-    text-align: center;
-}
 
+/* Keyframes */
 @keyframes turn_coin {
     0% {
         rotate: 0;
     }
-
     100% {
-        rotate: -45deg
+        rotate: -45deg;
     }
+}
+
+
+/* Food Guide */
+.box {
+    padding: 30px;
+}
+
+.box .box-img {
+    float: left;
+    width: 30%;
+    height: 100%;
+
+}
+
+.box .box-text {
+    background-color: #F4D58D;
+    border: #F4D58D 5px solid;
+    border-radius: 5%;
+    padding: 50px;
+
+    width: 70%;
+    display: inline-block;
 }
