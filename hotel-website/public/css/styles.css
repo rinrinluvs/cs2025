@@ -188,13 +188,13 @@ p {
     text-align: center;
 }
 
-#features .box {
+.box {
     float: left;
     width: 33.33%;
     padding: 30px;
 }
 
-#features .meals {
+.meals {
     background-color: #f7c08a;
     overflow: hidden;
 }
@@ -283,13 +283,25 @@ p {
 #form-contact input {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
-    border: grey 1px solid;
+    margin: 8px;
+    border: #ddd 1px solid;
+}
+
+#form-contact input:focus,
+#form-contact textarea:focus {
+    outline: none;
+    border-color: #f7c08a;
 }
 
 #form-contact textarea {
     width: 100%;
-    padding: 7%
+    height: 200px;
+    padding: 5px;
+    border: #ddd 1px solid;
+}
+
+#form-contact button {
+    margin-top: 5px;
 }
 #features .box-a {
     float: left;
