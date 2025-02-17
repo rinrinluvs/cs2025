@@ -191,7 +191,7 @@ span.spec_char {
     line-height: .9em
 }
 
-/* History */
+/* History  */
 .history-box {
     display: flex;
     align-items: center; /* Centers items vertically */
@@ -227,7 +227,7 @@ span.spec_char {
     display: flex;
     gap: 20px;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 .scroll {
@@ -256,3 +256,12 @@ span.spec_char {
     line-height: 0.9em;
     margin-top: 0;
 }
+
+#footer {
+    margin-top: 20px;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    background-color: #336B54;
+    text-align: center;
+ }
