@@ -6,35 +6,36 @@
     <title>The Time Traveler's Emporium</title>
     <link rel="stylesheet" href="public/css/styles.css">
 </head>
-<body>
+<body class="bg-primary">
     <nav>
         <ul class="navbar bg-yellow">
-            <li class="logo"><a href="#"><img src="public/images/logo.png" alt="Logo"></a></li>
+            <li class="logo"><a href="#"><img src="public/images/logo.svg" alt="Logo"></a></li>
             <li><a href="past.html">Past</a></li>
             <li><a href="present.html">Present</a></li>
             <li><a href="future.html">Future</a></li>
         </ul>
     </nav>
-    <section class="hero bg-primary">
+    <section class="hero">
+        <img src="public/images/background.svg" alt="Background" id="hero-background">
         <div class="hero-content">
             <h2>A store for collectors of fine and elegant items</h2>
             <h1>The Time Traveler's Emporium</h1>
             <h2>Artifacts from the past, present, and future</h2>
-            <button class="btn explore-btn bg-yellow">Explore</button>
+            <a href="#top-picks"><button class="btn explore-btn bg-yellow">Explore</button></a>
         </div>
     </section>
     
-    <section class="curators-message bg-primary">
+    <section class="curators-message">
         <h2 class="section-title">Curator's Message</h2>
         <div class="message-container">
             <div class="curator-image">
-                <img src="public/images/curator.jpg" alt="John Smith - Curator">
+                <img src="public/images/curator.png" alt="John Smith - Curator">
             </div>
             <div class="message-content">
                 <p>Welcome, fellow collector. My name is John Smith, the curator and founder of the Time Traveler's Emporium.<br><br>Around 7 millennia ago, I discovered a piece of stone while walking home one day. This piece of stone changed my life. Some of you might recognize the stone- the Philosopher's Stone. I discovered the hidden feature of the stone, which allowed me to open a location and time of my choosing. I decided to disembark on a journey through time and space, making many friends and collecting many artifacts.<br><br>After all those years, my journey is coming to a close. So, I decided to sell artifacts collected during my journey so everyone could capture a glimpse of the past, present, and future. I give the chance of following the path I made to you, my friend.</p>
                 <div class="curator-signature">
-                    <div class="signature-svg">
-                        <!-- Add your SVG signature here -->
+                    <div class="signature">
+                        <img src="public/images/home/si gnature.svg" alt="Signature">
                     </div>
                     <div class="signature-text">
                         <p class="curator-name">John Smith</p>
@@ -45,94 +46,101 @@
         </div>
     </section>
 
-    <section class="testimonials bg-primary">
+    <section class="testimonials">
         <h2 class="section-title">Patron's Thoughts</h2>
         <div class="testimonial-container">
             <div class="testimonial-box">
                 <div class="testimonial-image">
-                    <img src="public/images/patron1.jpg" alt="Sarah Chen">
+                    <img src="public/images/home/baba.png" alt="Baba Dada Mama">
                 </div>
                 <div class="testimonial-content">
-                    <h3 class="testimonial-name">Sarah Chen</h3>
-                    <p class="testimonial-location">Neo Tokyo, 2089</p>
-                    <p class="testimonial-text">"The quantum crystal I purchased has transformed my understanding of temporal mechanics. The authentication process was thorough, and the artifact's condition exceeded my expectations. John's expertise and passion for temporal artifacts is evident in every transaction."</p>
+                    <h3 class="testimonial-name">Baba Dada Mama</h3>
+                    <p class="testimonial-location">Springdrive, Yahtzee 9</p>
+                    <p class="testimonial-text">"Bla bla da dah. Boo baa boo. Nanan nii bee. Sookamu (Very good. 10 points. Very useful. Lovely.)</p>
                     <div class="testimonial-rating">★★★★★</div>
                 </div>
             </div>
 
             <div class="testimonial-box">
                 <div class="testimonial-image">
-                    <img src="public/images/patron2.jpg" alt="Marcus Aurelius">
+                    <img src="public/images/home/salome.png" alt="Salome Jerome">
                 </div>
                 <div class="testimonial-content">
-                    <h3 class="testimonial-name">Marcus Aurelius</h3>
-                    <p class="testimonial-location">Rome, 165 AD</p>
-                    <p class="testimonial-text">"As an emperor and philosopher, I appreciate the historical significance of these artifacts. The Victorian timepiece I acquired has become a cherished possession in my collection. The Emporium's service transcends time itself."</p>
+                    <h3 class="testimonial-name">Salome Jerome</h3>
+                    <p class="testimonial-location">India, Earth</p>
+                    <p class="testimonial-text">Very good quality, and is not a scam. Great!</p>
                     <div class="testimonial-rating">★★★★★</div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- TODO: Make Purchase words larger -->
 
-    <section class="section bg-primary">
-        <h2 class="section-title">Top Picks</h2>
+    <section class="section">
+        <h2 class="section-title" id="top-picks">Top Picks</h2>
         <div class="grid">
             <div class="card bg-yellow">
                 <div class="card-image">
-                    <img src="public/images/item1.jpg" alt="Victorian Pocket Watch">
+                    <img src="public/images/products/teleport-stone.png" alt="Teleport Stone">
                 </div>
                 <div class="pick-details">
-                    <span class="pick-name">Victorian Pocket Watch</span>
-                    <span class="pick-price">$1,299</span>
+                    <span class="pick-name">Teleport Stone</span>
+                    <span class="pick-price">$299998</span>
                 </div>
                 <button class="btn purchase-btn bg-primary">Purchase</button>
             </div>
 
             <div class="card bg-yellow">
                 <div class="card-image">
-                    <img src="public/images/item2.jpg" alt="Modern Art Sculpture">
+                    <img src="public/images/products/the-stone.png" alt="Philosopher's Stone">
                 </div>
                 <div class="pick-details">
-                    <span class="pick-name">Modern Art Sculpture</span>
-                    <span class="pick-price">$2,499</span>
+                    <span class="pick-name">Philosopher's Stone</span>
+                    <span class="pick-price">$9999999999</span>
                 </div>
                 <button class="btn purchase-btn bg-primary">Purchase</button>
             </div>
 
             <div class="card bg-yellow">
                 <div class="card-image">
-                    <img src="public/images/item3.jpg" alt="Quantum Crystal">
+                    <img src="public/images/products/immortality-elixir.png" alt="Immortality Elixir">
                 </div>
                 <div class="pick-details">
-                    <span class="pick-name">Quantum Crystal</span>
-                    <span class="pick-price">$3,999</span>
+                    <span class="pick-name">Immortality Elixir</span>
+                    <span class="pick-price">$10000</span>
                 </div>
                 <button class="btn purchase-btn bg-primary">Purchase</button>
             </div>
         </div>
     </section>
 
-    <section class="section bg-primary">
+    <section class="section">
         <h2 class="section-title">Other Products</h2>
         <div class="grid">
-            <div class="collection-item">
-                <div class="collection-image">
-                    <img src="public/images/home/maiden.svg" alt="Maiden - The Past">
+            <a href="past.html">
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="public/images/home/maiden.svg" alt="Maiden - The Past">
+                    </div>
+                    <h3>Past</h3>
+                </div>    
+            </a>
+            <a href="present.html">
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="public/images/home/mother.svg" alt="Mother - The Present">
+                    </div>
+                    <h3>Present</h3>
+                </div>    
+            </a>
+            <a href="future.html">
+                <div class="collection-item">
+                    <div class="collection-image">
+                        <img src="public/images/home/crone.svg" alt="Crone - The Future">
+                    </div>
+                    <h3>Future</h3>
                 </div>
-                <h3>Past</h3>
-            </div>
-            <div class="collection-item">
-                <div class="collection-image">
-                    <img src="public/images/home/mother.svg" alt="Mother - The Present">
-                </div>
-                <h3>Present</h3>
-            </div>
-            <div class="collection-item">
-                <div class="collection-image">
-                    <img src="public/images/home/crone.svg" alt="Crone - The Future">
-                </div>
-                <h3>Future</h3>
-            </div>
+            </a>
         </div>
     </section>
 
