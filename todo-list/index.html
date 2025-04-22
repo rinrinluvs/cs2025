@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My To-Do List</title>
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .section-box {
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      flex: 1;
+      min-width: 150px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    #todo-input button {
+      background-color: #007bff;
+    }
+
+    #todo-filter button {
+      background-color: #6c757d;
+    }
+
+    .todo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .todo-text {
+      max-width: 70%;
+    }
+
+    .todo-actions button {
+      margin-left: 10px;
+    }
+
+    .complete-btn {
+      background-color: #28a745;
+    }
+
+    .remove-btn {
+      background-color: #dc3545;
+    }
+
+    .strike {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>To-do List</h1>
+
+    <div class="section-box">
+      <form id="todo-input">
+        <input type="text" placeholder="What do I need to do?" required>
+        <label for="category">for</label>
+        <select name="category" id="category">
+          <option value="school">School</option>
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="due">due on</label>
+        <input type="date" name="due" id="due">
+        <button type="submit">+ Add to List</button>
+      </form>
+    </div>
+
+    <div class="section-box">
+      <form id="todo-filter">
+        <label for="category-filter">Filter by Category</label>
+        <select name="category-filter" id="category-filter">
+          <option value="all">All Categories</option>
+          <option value="school">School</option>
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="other">Other</option>
+        </select>
+        <button type="submit" formaction="javascript:redrawList('due', tasks)">Sort by Due Date</button>
+        <button type="submit" formaction="javascript:redrawList('complete', tasks)">Sort by Status</button>
+      </form>
+    </div>
+
+    <div id="todo-list"></div>
+  </div>
+
+  <script>
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    const date = new Date();
+    document.getElementById('due').value = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate() + 1).padStart(2, '0')}`;
+    const today = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    document.getElementById('due').setAttribute('min', today);
+
+    function redrawList(sort, todos) {
+      document.getElementById('todo-list').innerHTML = "";
+
+      let todosSorted;
+      switch (sort) {
+        case 'all':
+          todosSorted = todos;
+          break;
+        case 'due':
+          todosSorted = [...todos].sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+          break;
+        case 'complete':
+          const notCompleted = todos.filter(todo => !todo.completed);
+          const completed = todos.filter(todo => todo.completed);
+          todosSorted = notCompleted.concat(completed);
+          break;
+        default:
+          todosSorted = todos.filter(todo => todo.category === sort);
+          break;
+      }
+
+      todosSorted.forEach(todo => {
+        const todoContainer = document.createElement("div");
+        todoContainer.className = "todo";
+
+        const taskText = document.createElement("div");
+        taskText.className = "todo-text";
+
+        taskText.innerHTML = `
+          <strong>${todo.task}</strong><br>
+          Category: ${todo.category.charAt(0).toUpperCase() + todo.category.slice(1)}<br>
+          Due: ${todo.dueDate}
+        `;
+
+        if (todo.completed) {
+          taskText.classList.add("strike");
+        }
+
+        const actionBtns = document.createElement("div");
+        actionBtns.className = "todo-actions";
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+        removeBtn.type = "button";
+        removeBtn.className = "remove-btn";
+        removeBtn.addEventListener('click', () => {
+          tasks = tasks.filter(item => item !== todo);
+          saveTasks();
+          redrawList('all', tasks);
+        });
+
+        if (todo.completed) {
+          const undoBtn = document.createElement("button");
+          undoBtn.textContent = "Undo";
+          undoBtn.type = "button";
+          undoBtn.className = "complete-btn";
+          undoBtn.style.backgroundColor = "#ffc107";
+          undoBtn.addEventListener('click', () => {
+            todo.completed = false;
+            saveTasks();
+            redrawList('all', tasks);
+          });
+
+          actionBtns.appendChild(undoBtn);
+          actionBtns.appendChild(removeBtn);
+        } else {
+          const completeBtn = document.createElement("button");
+          completeBtn.textContent = "Complete";
+          completeBtn.type = "button";
+          completeBtn.className = "complete-btn";
+          completeBtn.addEventListener('click', () => {
+            todo.completed = true;
+            saveTasks();
+            redrawList('all', tasks);
+          });
+
+          actionBtns.appendChild(completeBtn);
+          actionBtns.appendChild(removeBtn);
+        }
+
+        todoContainer.appendChild(taskText);
+        todoContainer.appendChild(actionBtns);
+        document.getElementById('todo-list').appendChild(todoContainer);
+      });
+
+      document.getElementById("todo-input").reset();
+      const date = new Date();
+      document.getElementById('due').value = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate() + 1).padStart(2, '0')}`;
+    }
+
+    function saveTasks() {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    document.getElementById("todo-input").addEventListener('submit', (event) => {
+      event.preventDefault();
+      const task = event.target[0].value;
+      const category = event.target[1].value;
+      const dueDate = event.target[2].value;
+
+      tasks.push({
+        task,
+        category,
+        dueDate,
+        completed: false
+      });
+
+      saveTasks();
+      redrawList('all', tasks);
+    });
+
+    document.getElementById('category-filter').addEventListener('change', () => {
+      const sortCategory = document.getElementById('category-filter').value;
+      redrawList(sortCategory, tasks);
+    });
+
+    redrawList('all', tasks);
+  </script>
+</body>
+</html>
